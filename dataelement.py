@@ -10,3 +10,8 @@ const SALARY_TYPE_FULL = 0;
                 return @format_price($candidate->user_preferences->salary);
             })
             ->addColumn('contract_type', function($candidate) {
+class PersonAdmin(admin.ModelAdmin):
+    search_fields = ('first_name', 'last_name')
+    list_display = ('most_recent_job',)
+    readonly_fields = ('first_name', 'last_name', 'most_recent_job', 'slug',)
+    exclude = ('vintage',)
